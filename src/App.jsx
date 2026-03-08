@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const ANTHROPIC_API_URL = "/api/proxy";
+const API_KEY = "sk-ant-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";
 const TRACKS = {
   immediate: {
     id: "immediate",
