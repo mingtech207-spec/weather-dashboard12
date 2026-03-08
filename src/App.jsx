@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
-
+const ANTHROPIC_API_URL = "/api/proxy";
 const TRACKS = {
   immediate: {
     id: "immediate",
