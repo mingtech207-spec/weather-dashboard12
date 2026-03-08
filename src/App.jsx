@@ -289,9 +289,6 @@ export default function Dashboard() {
         method: "POST",
        headers: { 
   "Content-Type": "application/json",
-  "x-api-key": API_KEY,              // ← 이 줄 추가
-  "anthropic-version": "2023-06-01", // ← 이 줄 추가
-  "anthropic-beta": "web-search-2025-03-05", // ← 이 줄 추가
 },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
