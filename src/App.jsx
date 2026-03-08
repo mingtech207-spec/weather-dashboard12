@@ -304,8 +304,19 @@ export default function Dashboard() {
       });
       const result = await res.json();
       clearInterval(iv);
-      const text = result.content?.filter(b => b.type === "text").map(b => b.text).join("");
-      if (!text) throw new Error("응답 없음");
+      // 디버그용 - 나중에 지워도 됨
+console.log("API 응답:", JSON.stringify(result));
+
+// 웹서치 포함 응답에서 텍스트 추출
+const text = result.content
+  ?.filter(b => b.type === "text")
+  .map(b => b.text)
+  .join("") || "";
+
+if (!text) {
+  const errMsg = result.error?.message || JSON.stringify(result.content?.map(b => b.type));
+  throw new Error("응답 없음: " + errMsg);
+}
       const match = text.match(/\{[\s\S]*\}/);
       if (!match) throw new Error("JSON 파싱 실패");
       setData(JSON.parse(match[0]));
